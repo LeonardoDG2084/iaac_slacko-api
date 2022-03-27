@@ -5,10 +5,12 @@ from pymongo import MongoClient
 from fastapi import FastAPI, status
 from pydantic import BaseModel
 from typing import List
+import os
 
 DB = "slack"
 MSG_COLLECTION = "messages"
-MONGODB_SERVER = "mongodb://mongodb.iaac0506.com.br:27017/"
+MONGODB_SERVER = os.environ["MONGODB_SERVER"] 
+# "mongodb://mongodb.iaac0506.com.br:27017/"
 
 # Classe que ira definir o schema do mongodb
 class Message(BaseModel):
